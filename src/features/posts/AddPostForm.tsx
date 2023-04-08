@@ -15,15 +15,20 @@ const AddPostForm = (props: Props) => {
   const users = useSelector(selectAllUsers);
   const dispath = useAppDispatch();
   return (
-    <Box component="form" noValidate autoComplete="off" p={10}>
+    <Box
+      component='form'
+      noValidate
+      autoComplete='off'
+      p={10}
+    >
       <TextField
-        placeholder="title"
+        placeholder='title'
         fullWidth
         required
         onChange={(e) => setTitle(e.target.value)}
       />
       <TextField
-        placeholder="content"
+        placeholder='content'
         margin={'dense'}
         fullWidth
         multiline
@@ -31,21 +36,25 @@ const AddPostForm = (props: Props) => {
         onChange={(e) => setBody(e.target.value)}
       />
       <Select
-        label="select author"
+        label='select author'
         fullWidth
-        placeholder="select author"
-        margin="dense"
+        placeholder='author'
+        margin='dense'
         value={userId}
         onChange={(e) => setUserId(e.target.value as number)}
+        style={{ margin: '10px 0' }}
       >
         {users.map((u) => (
-          <MenuItem key={u.id} value={u.id}>
+          <MenuItem
+            key={u.id}
+            value={u.id}
+          >
             {u.name}
           </MenuItem>
         ))}
       </Select>
       <Button
-        variant="contained"
+        variant='contained'
         fullWidth
         onClick={() => dispath(postAdded(title, body, userId))}
       >

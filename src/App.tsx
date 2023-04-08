@@ -1,4 +1,4 @@
-import { Box, Container, Stack } from '@mui/material';
+import { Box } from '@mui/material';
 import PostsList from './features/posts/PostsList';
 import AddPostForm from './features/posts/AddPostForm';
 

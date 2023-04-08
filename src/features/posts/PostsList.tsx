@@ -22,14 +22,14 @@ const PostsList = (props: Props) => {
       dispatch(fetchPosts());
     }
   }, [status, dispatch]);
-  if (status === 'loading')
-    return (
-      <div>
-        loading <div className=""></div>
-      </div>
-    );
+
+  if (status === 'loading') return <div>loading ...</div>;
+
   return (
-    <Stack direction={'row'} sx={{ flexWrap: 'wrap' }}>
+    <Stack
+      direction={'row'}
+      sx={{ flexWrap: 'wrap' }}
+    >
       {posts.map(({ id, title, body, userId }) => (
         <Box
           key={id}
@@ -41,7 +41,11 @@ const PostsList = (props: Props) => {
             borderRadius: 10,
           }}
         >
-          <Typography variant="h3" fontWeight={'bolder'} noWrap>
+          <Typography
+            variant='h3'
+            fontWeight={'bolder'}
+            noWrap
+          >
             {title}
           </Typography>
           <Typography>{body.substring(0, 100)}</Typography>
